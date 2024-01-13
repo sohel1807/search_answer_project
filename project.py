@@ -37,7 +37,7 @@ webpage=input("website name(https://www.example.com):-")
 value=path_extraction(webpage)
 print(value)
 rr=webpage+value
-print(rr)  # Check if the URL is correct
+print(rr)  
 
 
 
