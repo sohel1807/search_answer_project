@@ -7,7 +7,7 @@ import spacy
 import re
 sentence=input("search:-")
 nlp = spacy.blank('en')
-
+headers = {'User-Agent': "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.162 Safari/537.36 Edge/12.246"}
 def extract_keywords_spacy(sentence):
     doc = nlp(sentence.lower())
     important_words = [token.text for token in doc if not token.is_stop]
@@ -17,7 +17,7 @@ keywords_spacy = extract_keywords_spacy(sentence)
 print(keywords_spacy)
 
 def path_extraction(url):
-    headers = {'User-Agent': "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.162 Safari/537.36 Edge/12.246"}
+    
     response = requests.get(url, headers=headers)
     
     if response.status_code == 200:
@@ -38,7 +38,7 @@ value=path_extraction(webpage)
 print(value)
 rr=webpage+value
 print(rr)  # Check if the URL is correct
-headers = {'User-Agent': "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.162 Safari/537.36 Edge/12.246"}
+
 
 
 def extract_data_from_page(url):
