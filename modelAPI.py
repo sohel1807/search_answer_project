@@ -13,3 +13,7 @@ app = FastAPI()
 async def test_api(payload: InputModel):
     res = await startModel(payload.url, payload.query)
     return {"result": res}
+
+@app.get('/')
+async def home():
+    return {"message": "working"}
