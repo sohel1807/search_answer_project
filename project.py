@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from bs4 import BeautifulSoup
 import requests
-import html5lib
+
 import spacy
 import re
 sentence=input("search:-")
@@ -17,14 +17,11 @@ keywords_spacy = extract_keywords_spacy(sentence)
 print(keywords_spacy)
 
 def path_extraction(url):
-    
     response = requests.get(url, headers=headers)
-    
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, 'html.parser')
         for keyword in keywords_spacy:
             potential_elements = soup.find_all(lambda tag: tag.name.lower() == 'a' and keyword in tag.get_text().lower())
-            
             for element in potential_elements:
                 href_value = element.get('href')
                 return href_value
@@ -35,11 +32,8 @@ def path_extraction(url):
     
 webpage=input("website name(https://www.example.com):-")
 value=path_extraction(webpage)
-print(value)
 rr=webpage+value
-print(rr)  
-
-
+  
 
 def extract_data_from_page(url):
     
@@ -48,6 +42,7 @@ def extract_data_from_page(url):
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, 'html.parser')
         paragraphs = soup.find_all('body')
+        print("\ninformation:-\t")
         for paragraph in paragraphs:
             print(paragraph.get_text())
 
