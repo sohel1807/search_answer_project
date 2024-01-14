@@ -1,7 +1,7 @@
 # api to get client information
 from fastapi import FastAPI
 from pydantic import BaseModel
-from project import startModel  # Correct import
+from model import startModel  # Correct import
 from http.server import BaseHTTPRequestHandler
 
 
